@@ -7,21 +7,21 @@ from functions import *
 
 class newDTIPrediction:
     def __init__(self):        
-        with open(os.path.join('data','novelDrugsKEGG.csv'), 'rb') as csvfile:
+        with open(os.path.join('data','novelDrugsKEGG.csv'), 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=';', quotechar='"')
             kg = np.array(list(reader))            
             t = kg[np.arange(1,kg.shape[0]),0]
             d = kg[np.arange(1,kg.shape[0]),1]
             self.kegg = list(zip(d,t))
         
-        with open(os.path.join('data','novelDrugsDrugBank.csv'), 'rb') as csvfile:
+        with open(os.path.join('data','novelDrugsDrugBank.csv'), 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=';', quotechar='"')
             db = np.array(list(reader))            
             t = db[np.arange(1,db.shape[0]),1]
             d = db[np.arange(1,db.shape[0]),0]
             self.drugBank = list(zip(d,t))  
         
-        with open(os.path.join('data','novelDrugsMatador.csv'), 'rb') as csvfile:
+        with open(os.path.join('data','novelDrugsMatador.csv'), 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=';', quotechar='"')
             mt = np.array(list(reader))            
             t = mt[np.arange(1,mt.shape[0]),1]
